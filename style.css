@@ -1,0 +1,53 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  background-color: yellow;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  width: 100%;
+  height: 20rem;
+  padding: 3rem;
+  background-color: green;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+.tasks {
+  margin-left: 10rem;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.taskHeading{
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  width: 70%;
+  height: 3rem;
+}
+
+.btn {
+  width: 10%;
+  border-radius: 0.5rem;
+}
