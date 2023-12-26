@@ -1,9 +1,9 @@
 "use strict";
 import { init } from "./constants";
 
-const { btn, input } = init();
+const { btn, input, tasks } = init();
 
-class ToDoList {
+class TaskCreator {
   constructor(text) {
     this.text = text;
   }
@@ -11,8 +11,22 @@ class ToDoList {
 
 btn.addEventListener("click", function () {
   let inputText = input.value;
-  const task = new ToDoList(inputText);
+  console.log(inputText);
+  const task = new TaskCreator(inputText);
   console.log(task);
-//   inputText = "";
-  console.log(input);
 });
+
+
+const createDiv = () => {
+  const taskDiv = document.createElement("div");
+  const taskBtn = document.createElement("button");
+  taskDiv.classList.add("taskDiv");
+  taskBtn.classList.add("taskBtn");
+
+  taskDiv.appendChild(taskBtn);
+  tasks.appendChild(taskDiv);
+};
+
+createDiv();
+createDiv();
+createDiv();

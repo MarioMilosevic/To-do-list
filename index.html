@@ -9,18 +9,25 @@
   </head>
   <body>
     <div id="app">
-      <div class="list">
+      <div class="header">
         <h1>ToDo List</h1>
       </div>
-      <div class="tasks">
+      <div class="list">
         <div class="taskHeading">
           <h1>Add tasks</h1>
         </div>
         <div class="options">
-          <input class="input" type="text" placeholder="Add your new task..." />
+          <input
+            id="input"
+            class="input"
+            type="text"
+            placeholder="Add your new task..."
+          />
           <button class="btn">Add</button>
         </div>
-        <h2>Tasks</h2>
+        <div class="tasks">
+          <h2>Tasks</h2>
+        </div>
       </div>
     </div>
     <script type="module" src="/main.js"></script>
