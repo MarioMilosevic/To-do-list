@@ -1,7 +1,8 @@
 :root {
-  --color-gray-light:
-  --color-accent-primary:
-  --color-accent-shade1:
+  --color-gray-light: #e5e7eb;
+  --color-accent-light: #d1d5db;
+  --color-accent-shade1:#9ca3af;
+  --color-gray-dark: #374151;
 }
 
 * {
@@ -12,16 +13,12 @@
 
 html {
   font-size: 62.5%;
-  font-family: "Poppins", sans-serif;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-  background-color: #e5e7eb;
-  /* background: #4568DC;  /* fallback for old browsers 
-  background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  Chrome 10-25, Safari 5.1-6 
-  background: linear-gradient(to right, #B06AB3, #4568DC); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
-   */
+  background-color: var(--color-gray-light);
 }
 
 #app {
@@ -75,6 +72,8 @@ body {
   width: 10%;
   cursor: pointer;
   border-radius: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 .taskDiv {
@@ -86,6 +85,7 @@ body {
   height: 50px;
   position: relative;
   border: 1px solid black;
+  border-radius: 10px;
   margin-bottom: 2rem;
   padding: 0 1rem;
   font-size: 2.2rem;
@@ -96,8 +96,10 @@ body {
   border-radius: 10px;
   width: 5%;
   height: 70%;
+  color: var(--color-accent-light);
   position: absolute;
   top: 14%;
   right: 2%;
   cursor: pointer;
+  background-color: var(--color-gray-dark);
 }
