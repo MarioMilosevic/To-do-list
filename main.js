@@ -21,12 +21,10 @@ const createDiv = () => {
   const taskDiv = document.createElement("div");
   const taskBtn = document.createElement("button");
   taskDiv.classList.add("taskDiv");
-  taskBtn.classList.add("taskBtn");
-
+  taskBtn.classList.add("taskBtn"); 
   taskDiv.appendChild(taskBtn);
   tasks.appendChild(taskDiv);
 };
 
-createDiv();
 createDiv();
 createDiv();
