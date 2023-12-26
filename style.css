@@ -47,6 +47,7 @@ body {
 }
 
 .options {
+  width: 70%;
   display: flex;
   justify-content: space-between;
 }
@@ -54,9 +55,11 @@ body {
 .input {
   width: 70%;
   height: 3rem;
+  padding: 1rem;
 }
 
 .btn {
   width: 10%;
+  cursor: pointer;
   border-radius: 0.5rem;
 }
