@@ -11,10 +11,6 @@ export const createDiv = (obj, parent) => {
   parent.appendChild(taskDiv);
 
   btnEvent(taskBtn, obj, taskDiv);
-
-  //   taskBtn.addEventListener("click", function () {
-  //     obj.removeTask(taskDiv)
-  //
 };
 
 const btnEvent = (btn, el, div) => {
