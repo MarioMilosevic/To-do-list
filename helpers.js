@@ -6,7 +6,7 @@ export const createDiv = (obj, parent) => {
   const taskBtn = document.createElement("button");
   taskDiv.classList.add("taskDiv");
   taskBtn.classList.add("taskBtn");
-  taskBtn.textContent = "X";
+  taskBtn.textContent = 'X';
   taskDiv.appendChild(taskBtn);
   parent.appendChild(taskDiv);
 

@@ -14,11 +14,11 @@ class TaskCreator {
 
 btn.addEventListener("click", function () {
   let inputText = input.value;
-  if(inputText !== ''){
+  if (inputText !== "") {
     const task = new TaskCreator(inputText);
     createDiv(task, tasks);
-    input.value = ''
+    input.value = "";
   } else {
-    return
+    return;
   }
 });
