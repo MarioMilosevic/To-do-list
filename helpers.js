@@ -18,14 +18,13 @@ export const createDiv = (obj, parent, arr) => {
   const taskInputBtn = document.createElement('button')
   taskInputBtn.classList.add('taskInputBtn')
   taskInputBtn.textContent = 'Done'
-  taskInput.append(taskInputBtn)
 
   taskDiv.textContent = obj.text;
   taskDiv.append(taskEditBtn, taskRemoveBtn)
   parent.append(taskDiv, taskInput);
 
   btnRemoveEvent(taskRemoveBtn, obj, taskDiv, arr);
-  btnEditEvent(taskEditBtn, obj, taskDiv);
+  btnEditEvent(taskEditBtn, obj, taskDiv, taskInput);
 };
 // sakrijem div, napravim input sa istom klasom i asignujem joj ovaj textContent pa nakon zavrsetka editovanja vratim div a proslijedim mu textContent iz inputa a sakrijem input
 const btnRemoveEvent = (btn, el, div, arr) => {
@@ -35,9 +34,12 @@ const btnRemoveEvent = (btn, el, div, arr) => {
   });
 };
 
-const btnEditEvent = (btn, el, div) => {
+const btnEditEvent = (btn, el, div, input) => {
   btn.addEventListener("click", function () {
-    el.editTask(div, )
+    el.editTask(div, input)
+    const divText = div.innerText
+    const realDivText = divText.replace('EditX', '')
+    input.value = realDivText
   });
 };
 
