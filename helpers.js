@@ -12,19 +12,25 @@ export const createDiv = (obj, parent, arr) => {
   taskEditBtn.classList.add("taskEditBtn");
   taskEditBtn.textContent = "Edit";
 
+  const taskInputDiv = document.createElement('div')
+  taskInputDiv.classList.add('taskInputDiv', 'hidden')
+  
   const taskInput = document.createElement('input')
-  taskInput.classList.add('taskInput', 'hidden')
-
+  taskInput.classList.add('taskInput')
+  
   const taskInputBtn = document.createElement('button')
   taskInputBtn.classList.add('taskInputBtn')
   taskInputBtn.textContent = 'Done'
+  taskInputDiv.append(taskInput, taskInputBtn)
+
+  taskInputDiv.append(taskInput, taskInputBtn)
 
   taskDiv.textContent = obj.text;
   taskDiv.append(taskEditBtn, taskRemoveBtn)
-  parent.append(taskDiv, taskInput);
+  parent.append(taskDiv, taskInputDiv);
 
   btnRemoveEvent(taskRemoveBtn, obj, taskDiv, arr);
-  btnEditEvent(taskEditBtn, obj, taskDiv, taskInput);
+  btnEditEvent(taskEditBtn, obj, taskDiv, taskInputDiv);
 };
 // sakrijem div, napravim input sa istom klasom i asignujem joj ovaj textContent pa nakon zavrsetka editovanja vratim div a proslijedim mu textContent iz inputa a sakrijem input
 const btnRemoveEvent = (btn, el, div, arr) => {
@@ -39,7 +45,7 @@ const btnEditEvent = (btn, el, div, input) => {
     el.editTask(div, input)
     const divText = div.innerText
     const realDivText = divText.replace('EditX', '')
-    input.value = realDivText
+  input.firstChild.value = realDivText
   });
 };
 
