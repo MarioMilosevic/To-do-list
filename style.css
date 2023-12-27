@@ -80,7 +80,8 @@ body {
   font-weight: 600;
 }
 
-.taskDiv, .taskInput {
+.taskDiv,
+.taskInput {
   display: flex;
   justify-content: space-between;
   background-color: #f1f5f9;
@@ -99,33 +100,29 @@ body {
   display: none;
 }
 
-
-.taskEditBtn {
+.taskEditBtn,
+.taskRemoveBtn,
+.taskInputBtn {
   border: 1px solid black;
-  border-radius:  10px;
-padding: 0.5rem;
+  border-radius: 10px;
+  padding: 0.5rem;
   width: 6%;
   height: 70%;
-  color: var(--color-gray-dark);
   position: absolute;
+  cursor: pointer;
+}
+
+.taskEditBtn,
+.taskInputBtn {
+  background-color: var(--color-accent-light);
+  color: var(--color-gray-dark);
   top: 14%;
   right: 10%;
-  cursor: pointer;
-  background-color: var(--color-accent-light);
 }
 
 .taskRemoveBtn {
-  border: 1px solid black;
- border-radius:  10px;
-  width: 6%;
-  height: 70%;
-  padding: 0.5rem;
-  font-size: 2rem;
-  color: var(--color-accent-light);
-  position: absolute;
+  background-color: var(--color-gray-dark);
   top: 14%;
   right: 2%;
-  cursor: pointer;
-  background-color: var(--color-gray-dark);
+  color: var(--color-accent-light);
 }
-

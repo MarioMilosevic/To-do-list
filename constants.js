@@ -12,3 +12,16 @@ export function init() {
     taskArr,
   };
 }
+
+export class TaskCreator {
+  constructor(text) {
+    this.text = text;
+  }
+  removeTask(el) {
+    el.remove();
+  }
+  editTask(div, inputDiv) {
+    div.classList.add("hidden");
+    inputDiv.classList.remove("hidden");
+  }
+}

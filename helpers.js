@@ -3,19 +3,26 @@
 export const createDiv = (obj, parent, arr) => {
   const taskDiv = document.createElement("div");
   taskDiv.classList.add("taskDiv");
+
   const taskRemoveBtn = document.createElement("button");
   taskRemoveBtn.classList.add("taskRemoveBtn");
   taskRemoveBtn.textContent = "X";
+
   const taskEditBtn = document.createElement("button");
   taskEditBtn.classList.add("taskEditBtn");
   taskEditBtn.textContent = "Edit";
+
   const taskInput = document.createElement('input')
   taskInput.classList.add('taskInput', 'hidden')
+
+  const taskInputBtn = document.createElement('button')
+  taskInputBtn.classList.add('taskInputBtn')
+  taskInputBtn.textContent = 'Done'
+  taskInput.append(taskInputBtn)
+
   taskDiv.textContent = obj.text;
-  taskDiv.append(taskEditBtn, taskRemoveBtn, taskInput)
-  // taskDiv.appendChild(taskEditBtn);
-  // taskDiv.appendChild(taskRemoveBtn);
-  parent.append(taskDiv);
+  taskDiv.append(taskEditBtn, taskRemoveBtn)
+  parent.append(taskDiv, taskInput);
 
   btnRemoveEvent(taskRemoveBtn, obj, taskDiv, arr);
   btnEditEvent(taskEditBtn, obj, taskDiv);
@@ -30,13 +37,7 @@ const btnRemoveEvent = (btn, el, div, arr) => {
 
 const btnEditEvent = (btn, el, div) => {
   btn.addEventListener("click", function () {
-    // el.editTask(div)
-    // div.focus()
-    console.log('div', div);
-    console.log('');
+    el.editTask(div, )
   });
 };
 
-const editTask = (task, div) => {
-
-}
