@@ -17,11 +17,20 @@ export class TaskCreator {
   constructor(text) {
     this.text = text;
   }
+
+  updateText(value) {
+    return (this.text += value);
+  }
+
+  setText(value) {
+    return (this.text = value);
+  }
+
   removeTask(el) {
     el.remove();
   }
-  editTask(div, inputDiv) {
-    div.classList.add("hidden");
-    inputDiv.classList.remove("hidden");
+  editTask(a, b) {
+    a.classList.add("hidden");
+    b.classList.remove("hidden");
   }
 }
