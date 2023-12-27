@@ -1,7 +1,9 @@
 "use strict";
 import { init } from "./constants";
 import { createDiv } from "./helpers";
-const { btn, input, tasks } = init();
+const { btn, input, tasks, taskArr } = init();
+
+
 
 class TaskCreator {
   constructor(text) {
@@ -18,6 +20,8 @@ btn.addEventListener("click", function () {
     const task = new TaskCreator(inputText);
     createDiv(task, tasks);
     input.value = "";
+    taskArr.push(task)
+    console.log(taskArr);
   } else {
     return;
   }

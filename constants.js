@@ -1,6 +1,7 @@
 "use strict";
 
 export function init() {
+  const taskArr = []
   const input = document.querySelector(".input");
   const btn = document.querySelector(".btn");
   const tasks = document.querySelector(".tasks");
@@ -8,5 +9,6 @@ export function init() {
     input,
     btn,
     tasks,
+    taskArr
   };
 }
