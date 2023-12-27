@@ -1,7 +1,7 @@
 :root {
   --color-gray-light: #e5e7eb;
   --color-accent-light: #d1d5db;
-  --color-accent-shade1:#9ca3af;
+  --color-accent-shade1: #9ca3af;
   --color-gray-dark: #374151;
 }
 
@@ -13,8 +13,8 @@
 
 html {
   font-size: 62.5%;
-  font-family: 'Poppins', sans-serif;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -29,13 +29,16 @@ body {
 }
 
 .header {
-  /* background-color: #a3e635; */
   width: 100%;
   height: 20rem;
   padding: 3rem;
   font-size: 4rem;
   margin-bottom: 2rem;
 }
+.header h1 {
+  margin-left: 6rem;
+}
+
 .list {
   margin-left: 10rem;
   padding: 1rem;
@@ -79,7 +82,7 @@ body {
 .taskDiv {
   display: flex;
   justify-content: space-between;
-  background-color:#f1f5f9;
+  background-color: #f1f5f9;
   align-items: center;
   width: 100%;
   height: 50px;
