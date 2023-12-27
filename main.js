@@ -18,7 +18,7 @@ btn.addEventListener("click", function () {
   let inputText = input.value;
   if (inputText !== "") {
     const task = new TaskCreator(inputText);
-    createDiv(task, tasks);
+    createDiv(task, tasks, taskArr);
     input.value = "";
     taskArr.push(task)
     console.log(taskArr);
