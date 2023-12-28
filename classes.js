@@ -21,6 +21,10 @@ export class TaskManager {
     return this.taskArr
   }
 
+  removeTask(todo) {
+    return this.taskArr.splice(todo.index, 1)
+  }
+
   updateText(value) {
     return (this.text += value);
   }
@@ -29,8 +33,8 @@ export class TaskManager {
     return (this.text = value);
   }
 
-  removeTask(el) {
-    el.remove();
+  removeTask(todo) {
+    return this.taskArr.splice(todo.index, 1)
   }
   editTask(a, b) {
     a.classList.add("hidden");

@@ -1,7 +1,6 @@
 "use strict";
-import { DomUpdater } from "./classes";
- const createDiv = (obj, parent, arr, domUpd) => {
-  const domUpdate = new DomUpdater()
+ const createDiv = (obj, parent, taskMan, domUpd) => {
+  const domUpdate = new domUpd()
   domUpdate.addClass(domUpdate.taskDiv, 'taskDiv')
   domUpdate.addClass(domUpdate.taskRemoveBtn, 'taskRemoveBtn')
   domUpdate.addClass(domUpdate.taskEditBtn, 'taskEditBtn')
@@ -19,20 +18,25 @@ import { DomUpdater } from "./classes";
   
   parent.append(domUpdate.returnEl(domUpdate.taskDiv), domUpdate.returnEl(domUpdate.taskInputDiv));
 
-  btnRemoveEvent(domUpdate.taskRemoveBtn, obj, domUpdate.taskDiv, arr);
-  btnEditEvent(domUpdate.taskEditBtn, obj, domUpdate.taskDiv, domUpdate.taskInputDiv);
+  btnRemoveEvent(domUpdate, obj, domUpdate.taskDiv, taskMan);
+  btnEditEvent(domUpdate.taskEditBtn, obj, domUpdate.taskDiv, domUpdate.taskInputDiv, taskMan);
 };
 
-const btnRemoveEvent = (btn, el, div, arr) => {
-  btn.addEventListener("click", function () {
-    el.removeTask(div);
-    arr.splice(el.index, 1);
+const btnRemoveEvent = (domUpd, el, div, taskMan) => {
+  domUpd.taskRemoveBtn.addEventListener("click", function () {
+    taskMan.removeTask(el)
+    domUpd
   });
 };
 
-const btnEditEvent = (btn, el, div, input) => {
+const btnEditEvent = (btn, el, div, input, arr) => {
   btn.addEventListener("click", function () {
-    console.log(el);
+    console.log('btn', btn);
+    console.log('el',el);
+    console.log('div' ,div);
+    console.log('input', input);
+    ///////////////////////////////////
+    arr.editTask(el)
 ///////////////////////////////////////////////////////
     el.editTask(div, input);
     const divText = el.text;
@@ -53,12 +57,12 @@ const btnEditEvent = (btn, el, div, input) => {
   };
 };
 
-export const createTodo = (o, todo, taskMan) => {
+export const createTodo = (o, todo, taskMan, domUpd) => {
   let inputText = input.value;
   if (inputText !== "") {
     const task = new todo(inputText);
-    createDiv(task, o, taskMan.taskArr);
+    createDiv(task, o, taskMan, domUpd);
     input.value = "";
-    taskMan.taskArr.push(task);
+    taskMan.add(task)
   }
 }
