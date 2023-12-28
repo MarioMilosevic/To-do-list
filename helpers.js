@@ -27,8 +27,8 @@ const btnRemoveEvent = (domUpd, el, div, taskMan) => {
     taskMan.removeTask(el)
     console.log(domUpd);
     console.log(el);
-    console.log(taskMan);
-    // domUpd.removeFn(el, taskMan.task)
+    console.log(taskMan.getArr());
+    domUpd.removeFn(el, taskMan.getArr())
   });
 };
 

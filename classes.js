@@ -12,22 +12,22 @@ export class TaskManager {
     this.taskArr = [];
   }
 
-  add(todo){
-    this.taskArr.push(todo)
-    return this.taskArr
+  add(todo) {
+    this.taskArr.push(todo);
+    return this.taskArr;
   }
 
-  getArr(){
-    return this.taskArr
+  getArr() {
+    return this.taskArr;
   }
 
-  remove(todo){
-    this.taskArr.splice(todo.index)
-    return this.taskArr
+  remove(todo) {
+    this.taskArr.splice(todo.index);
+    return this.taskArr;
   }
 
   removeTask(todo) {
-    return this.taskArr.splice(todo.index, 1)
+    return this.taskArr.splice(todo.index, 1);
   }
 
   updateText(value) {
@@ -39,9 +39,8 @@ export class TaskManager {
   }
 
   removeTask(todo) {
-    return this.taskArr.splice(todo.index, 1)
+    return this.taskArr.splice(todo.index, 1);
   }
-  
 }
 
 export class DomUpdater {
@@ -59,9 +58,9 @@ export class DomUpdater {
     return el;
   }
 
-  removeFn(todo, arr){
-   arr.filter(todo => todo !== todo.index)
-   return arr
+  removeFn(todo, arr) {
+    const filterArr = arr.filter((_, index) => index !== todo.index);
+    return filterArr;
   }
 
   addTextContent(el, content) {
