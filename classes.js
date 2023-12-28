@@ -3,6 +3,7 @@
 export class Todo {
   constructor(text) {
     this.text = text;
+    this.isEditing = false;
   }
 }
 
@@ -13,6 +14,10 @@ export class TaskManager {
 
   add(todo){
     this.taskArr.push(todo)
+    return this.taskArr
+  }
+
+  getArr(){
     return this.taskArr
   }
 
@@ -36,10 +41,7 @@ export class TaskManager {
   removeTask(todo) {
     return this.taskArr.splice(todo.index, 1)
   }
-  editTask(a, b) {
-    a.classList.add("hidden");
-    b.classList.remove("hidden");
-  }
+  
 }
 
 export class DomUpdater {
@@ -56,12 +58,23 @@ export class DomUpdater {
     el.classList.add(...cl);
     return el;
   }
+
+  removeFn(todo, arr){
+   arr.filter(todo => todo !== todo.index)
+   return arr
+  }
+
   addTextContent(el, content) {
     el.textContent = content;
     return el;
   }
   returnEl(el) {
     return el;
+  }
+
+  updateTask(a, b) {
+    a.classList.add("hidden");
+    b.classList.remove("hidden");
   }
 
   appendEl(a, b, c) {
