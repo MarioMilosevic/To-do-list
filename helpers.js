@@ -1,6 +1,6 @@
 "use strict";
 import { DomUpdater } from "./classes";
-export const createDiv = (obj, parent, arr) => {
+ const createDiv = (obj, parent, arr, domUpd) => {
   const domUpdate = new DomUpdater()
   domUpdate.addClass(domUpdate.taskDiv, 'taskDiv')
   domUpdate.addClass(domUpdate.taskRemoveBtn, 'taskRemoveBtn')
@@ -32,6 +32,8 @@ const btnRemoveEvent = (btn, el, div, arr) => {
 
 const btnEditEvent = (btn, el, div, input) => {
   btn.addEventListener("click", function () {
+    console.log(el);
+///////////////////////////////////////////////////////
     el.editTask(div, input);
     const divText = el.text;
     const realDivText = divText.replace("EditX", "");
@@ -50,7 +52,6 @@ const btnEditEvent = (btn, el, div, input) => {
     });
   };
 };
-
 
 export const createTodo = (o, todo, taskMan) => {
   let inputText = input.value;

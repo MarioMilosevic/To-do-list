@@ -1,7 +1,7 @@
 "use strict";
 import { init } from "./constants";
 import { Todo, TaskManager } from "./classes";
-import { createDiv, createTodo } from "./helpers";
+import { createTodo } from "./helpers";
 const { btn, input, tasks } = init();
 const taskManager = new TaskManager();
 

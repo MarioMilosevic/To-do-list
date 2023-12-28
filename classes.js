@@ -4,6 +4,22 @@ export class Todo {
   constructor(text) {
     this.text = text;
   }
+}
+
+export class TaskManager {
+  constructor() {
+    this.taskArr = [];
+  }
+
+  add(todo){
+    this.taskArr.push(todo)
+    return this.taskArr
+  }
+
+  remove(todo){
+    this.taskArr.splice(todo.index)
+    return this.taskArr
+  }
 
   updateText(value) {
     return (this.text += value);
@@ -19,12 +35,6 @@ export class Todo {
   editTask(a, b) {
     a.classList.add("hidden");
     b.classList.remove("hidden");
-  }
-}
-
-export class TaskManager {
-  constructor() {
-    this.taskArr = [];
   }
 }
 
