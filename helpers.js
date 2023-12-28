@@ -16,14 +16,7 @@ export const createDiv = (obj, parent, arr) => {
   domUpdate.appendEl(domUpdate.taskInputDiv, domUpdate.taskInput, domUpdate.taskInputBtn)
   domUpdate.addTextContent(domUpdate.taskDiv, obj.text)
   domUpdate.appendEl(domUpdate.taskDiv, domUpdate.taskEditBtn, domUpdate.taskRemoveBtn)
-
-  // taskInputDiv.append(taskInput, taskInputBtn);
-
-  // taskInputDiv.append(taskInput, taskInputBtn);
-
-  // taskDiv.textContent = obj.text;
-
-  // taskDiv.append(taskEditBtn, taskRemoveBtn);
+  
   parent.append(domUpdate.returnEl(domUpdate.taskDiv), domUpdate.returnEl(domUpdate.taskInputDiv));
 
   btnRemoveEvent(domUpdate.taskRemoveBtn, obj, domUpdate.taskDiv, arr);
@@ -57,3 +50,14 @@ const btnEditEvent = (btn, el, div, input) => {
     });
   };
 };
+
+
+export const createTodo = (o, todo, taskMan) => {
+  let inputText = input.value;
+  if (inputText !== "") {
+    const task = new todo(inputText);
+    createDiv(task, o, taskMan.taskArr);
+    input.value = "";
+    taskMan.taskArr.push(task);
+  }
+}

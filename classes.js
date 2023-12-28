@@ -40,11 +40,11 @@ export class DomUpdater {
 
   addClass(el, ...cl) {
     el.classList.add(...cl);
-    return el
+    return el;
   }
   addTextContent(el, content) {
     el.textContent = content;
-    return el
+    return el;
   }
   returnEl(el) {
     return el;
@@ -52,18 +52,6 @@ export class DomUpdater {
 
   appendEl(a, b, c) {
     a.append(b, c);
-    return a
+    return a;
   }
-
- 
 }
-
-const mario = new DomUpdater()
-console.log(mario)
-console.log(mario.addClass(mario.taskDiv, 'taskDiv'))
-console.log(mario.taskDiv)
-
- // this.taskInputDiv.append(this.taskInput, this.taskInputBtn);
-  //   taskDiv.textContent = obj.text;
-  //   taskDiv.append(taskEditBtn, taskRemoveBtn);
-  //   parent.append(taskDiv, taskInputDiv);
