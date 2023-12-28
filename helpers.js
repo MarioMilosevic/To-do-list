@@ -1,36 +1,33 @@
 "use strict";
-
+import { DomUpdater } from "./classes";
 export const createDiv = (obj, parent, arr) => {
-  const taskDiv = document.createElement("div");
-  taskDiv.classList.add("taskDiv");
+  const domUpdate = new DomUpdater()
+  domUpdate.addClass(domUpdate.taskDiv, 'taskDiv')
+  domUpdate.addClass(domUpdate.taskRemoveBtn, 'taskRemoveBtn')
+  domUpdate.addClass(domUpdate.taskEditBtn, 'taskEditBtn')
+  domUpdate.addClass(domUpdate.taskInputDiv, 'taskInputDiv', 'hidden')
+  domUpdate.addClass(domUpdate.taskInput, 'taskInput')
+  domUpdate.addClass(domUpdate.taskInputBtn, 'taskInputBtn')
 
-  const taskRemoveBtn = document.createElement("button");
-  taskRemoveBtn.classList.add("taskRemoveBtn");
-  taskRemoveBtn.textContent = "X";
+  domUpdate.addTextContent(domUpdate.taskEditBtn, 'Edit')
+  domUpdate.addTextContent(domUpdate.taskRemoveBtn, 'X')
+  domUpdate.addTextContent(domUpdate.taskInputBtn, 'Done')
 
-  const taskEditBtn = document.createElement("button");
-  taskEditBtn.classList.add("taskEditBtn");
-  taskEditBtn.textContent = "Edit";
+  domUpdate.appendEl(domUpdate.taskInputDiv, domUpdate.taskInput, domUpdate.taskInputBtn)
+  domUpdate.addTextContent(domUpdate.taskDiv, obj.text)
+  domUpdate.appendEl(domUpdate.taskDiv, domUpdate.taskEditBtn, domUpdate.taskRemoveBtn)
 
-  const taskInputDiv = document.createElement("div");
-  taskInputDiv.classList.add("taskInputDiv", "hidden");
+  // taskInputDiv.append(taskInput, taskInputBtn);
 
-  const taskInput = document.createElement("input");
-  taskInput.classList.add("taskInput");
+  // taskInputDiv.append(taskInput, taskInputBtn);
 
-  const taskInputBtn = document.createElement("button");
-  taskInputBtn.classList.add("taskInputBtn");
-  taskInputBtn.textContent = "Done";
-  taskInputDiv.append(taskInput, taskInputBtn);
+  // taskDiv.textContent = obj.text;
 
-  taskInputDiv.append(taskInput, taskInputBtn);
+  // taskDiv.append(taskEditBtn, taskRemoveBtn);
+  parent.append(domUpdate.returnEl(domUpdate.taskDiv), domUpdate.returnEl(domUpdate.taskInputDiv));
 
-  taskDiv.textContent = obj.text;
-  taskDiv.append(taskEditBtn, taskRemoveBtn);
-  parent.append(taskDiv, taskInputDiv);
-
-  btnRemoveEvent(taskRemoveBtn, obj, taskDiv, arr);
-  btnEditEvent(taskEditBtn, obj, taskDiv, taskInputDiv);
+  btnRemoveEvent(domUpdate.taskRemoveBtn, obj, domUpdate.taskDiv, arr);
+  btnEditEvent(domUpdate.taskEditBtn, obj, domUpdate.taskDiv, domUpdate.taskInputDiv);
 };
 
 const btnRemoveEvent = (btn, el, div, arr) => {
@@ -43,7 +40,7 @@ const btnRemoveEvent = (btn, el, div, arr) => {
 const btnEditEvent = (btn, el, div, input) => {
   btn.addEventListener("click", function () {
     el.editTask(div, input);
-    const divText = el.text
+    const divText = el.text;
     const realDivText = divText.replace("EditX", "");
     input.firstChild.value = realDivText;
     console.log(el);
@@ -53,9 +50,9 @@ const btnEditEvent = (btn, el, div, input) => {
   const btnDoneEvent = (btn, el, div, input) => {
     btn.addEventListener("click", function () {
       const inputFirstChild = input.firstChild;
-      const inputText = inputFirstChild.value
-      div.textContent = inputText
-      el.setText(inputText)
+      const inputText = inputFirstChild.value;
+      div.textContent = inputText;
+      el.setText(inputText);
       el.editTask(input, div);
     });
   };
