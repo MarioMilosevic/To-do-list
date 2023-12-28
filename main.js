@@ -1,5 +1,6 @@
 "use strict";
-import { init, TaskCreator } from "./constants";
+import { init } from "./constants";
+import { TaskCreator } from "./classes";
 import { createDiv } from "./helpers";
 const { btn, input, tasks, taskArr } = init();
 
