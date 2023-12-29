@@ -4,32 +4,8 @@ export class Todo {
   constructor(text) {
     this.text = text;
     this.isEditing = false;
+    this.id = Math.floor(Math.random() * 100000);
   }
-}
-
-export class TaskManager {
-  constructor() {
-    this.taskArr = [];
-  }
-
-  add(todo) {
-    this.taskArr.push(todo);
-    return this.taskArr;
-  }
-
-  getArr() {
-    return this.taskArr;
-  }
-
-  remove(todo) {
-    this.taskArr.splice(todo.index);
-    return this.taskArr;
-  }
-
-  removeTask(todo) {
-    return this.taskArr.splice(todo.index, 1);
-  }
-
   updateText(value) {
     return (this.text += value);
   }
@@ -38,8 +14,51 @@ export class TaskManager {
     return (this.text = value);
   }
 
+  updateIsEditing(value) {
+    return (this.isEditing += value);
+  }
+
+  setIsEditing(value) {
+    return (this.isEditing = value);
+  }
+
+  returnIsEditing(){
+    return this.isEditing
+  }
+}
+
+export class TaskManager {
+  constructor() {
+    this.taskArr = [];
+    this.removedTasks = []
+  }
+
+  add(todo) {
+    this.taskArr.push(todo);
+    return this.taskArr;
+  }
+
+  showRemovedTasks(){
+    return this.removedTasks
+  }
+
+  getArr() {
+    return this.taskArr;
+  }
+
+  editTask(todo, value){
+    todo.textContent += value;
+  }
+
   removeTask(todo) {
-    return this.taskArr.splice(todo.index, 1);
+    // if(todo.id = )
+    // // this.removedTasks.push(...this.taskArr.splice(todo.index, 1))
+    // const removedTask = this.taskArr.splice(this.taskArr[todo], 1)
+    // const index = this.taskArr[todo]
+    // return {
+    //   removedTask, index
+    // }
+    // return this.taskArr.splice(todo.index, 1)
   }
 }
 
@@ -67,6 +86,12 @@ export class DomUpdater {
     el.textContent = content;
     return el;
   }
+
+  returnTextContent(el){
+   return el.textContent 
+  }
+
+
   returnEl(el) {
     return el;
   }
