@@ -51,11 +51,13 @@ const btnEditEvent = (btn, todo, domUpd, arr) => {
     const tarray = arr.getArr();
     todo.setIsEditing(true);
     if(todo.returnIsEditing){
-      console.log(domUpd.taskDiv);
+      console.dir(domUpd.taskDiv);
       console.log(domUpd.taskInputDiv);
       console.log(domUpd);
-     const mario = domUpd.updateTask(domUpd.taskDiv, domUpd.taskInputDiv)
-     console.log(mario);
+     domUpd.updateTask(domUpd.taskDiv, domUpd.taskInputDiv)
+     console.log(domUpd.returnTextContent(domUpd.taskDiv));
+    //  console.log(domUpd.returnTextContent(domUpd.taskInpuDiv));
+     domUpd.addTextContent(domUpd.taskInputDiv, domUpd.taskDiv.textContent)
     }
     console.log("btn", btn);
     console.log("todo", todo);

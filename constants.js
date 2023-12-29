@@ -18,3 +18,9 @@ export function init() {
 // console.log(removed);
 
 
+const div = document.createElement('div')
+const button = document.createElement('button')
+button.textContent = 'text'
+div.textContent = 'div'
+div.append(button)
+// console.log(div.textContent);
