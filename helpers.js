@@ -1,37 +1,35 @@
 "use strict";
 const createDiv = (todo, todoParent, taskMan, domUpd) => {
   const domUpdate = new domUpd();
-  domUpdate.addClass(domUpdate.taskDiv, "taskDiv");
-  domUpdate.addClass(domUpdate.taskRemoveBtn, "taskRemoveBtn");
-  domUpdate.addClass(domUpdate.taskEditBtn, "taskEditBtn");
-  domUpdate.addClass(domUpdate.taskInputDiv, "taskInputDiv", "hidden");
-  domUpdate.addClass(domUpdate.taskInput, "taskInput");
-  domUpdate.addClass(domUpdate.taskInputBtn, "taskInputBtn");
+  const taskDiv = document.createElement("div");
+  const taskRemoveBtn = document.createElement("button");
+  const taskEditBtn = document.createElement("button");
+  const taskInputDiv = document.createElement("div");
+  const taskInput = document.createElement("input");
+  const taskInputBtn = document.createElement("button");
+  domUpdate.addClass(taskDiv, "taskDiv");
+  domUpdate.addClass(taskRemoveBtn, "taskRemoveBtn");
+  domUpdate.addClass(taskEditBtn, "taskEditBtn");
+  domUpdate.addClass(taskInputDiv, "taskInputDiv", "hidden");
+  domUpdate.addClass(taskInput, "taskInput");
+  domUpdate.addClass(taskInputBtn, "taskInputBtn");
 
-  domUpdate.addTextContent(domUpdate.taskEditBtn, "Edit");
-  domUpdate.addTextContent(domUpdate.taskRemoveBtn, "X");
-  domUpdate.addTextContent(domUpdate.taskInputBtn, "Done");
+  domUpdate.addTextContent(taskEditBtn, "Edit");
+  domUpdate.addTextContent(taskRemoveBtn, "X");
+  domUpdate.addTextContent(taskInputBtn, "Done");
 
-  domUpdate.appendEl(
-    domUpdate.taskInputDiv,
-    domUpdate.taskInput,
-    domUpdate.taskInputBtn
-  );
-  domUpdate.addTextContent(domUpdate.taskDiv, todo.text);
-  domUpdate.appendEl(
-    domUpdate.taskDiv,
-    domUpdate.taskEditBtn,
-    domUpdate.taskRemoveBtn
-  );
+  domUpdate.appendEl(taskInputDiv, taskInput, taskInputBtn);
+  domUpdate.addTextContent(taskDiv, todo.text);
+  domUpdate.appendEl(taskDiv, taskEditBtn, taskRemoveBtn);
 
   todoParent.append(
-    domUpdate.returnEl(domUpdate.taskDiv),
-    domUpdate.returnEl(domUpdate.taskInputDiv)
+    domUpdate.returnEl(taskDiv),
+    domUpdate.returnEl(taskInputDiv)
   );
 
   btnRemoveEvent(domUpdate, todo, domUpdate.taskDiv, taskMan);
 
-  btnEditEvent(domUpdate.taskEditBtn,todo,domUpdate,taskMan);
+  btnEditEvent(domUpdate.taskEditBtn, todo, domUpdate, taskMan);
 };
 
 const btnRemoveEvent = (domUpd, todo, div, taskMan) => {
@@ -50,20 +48,20 @@ const btnEditEvent = (btn, todo, domUpd, arr) => {
   btn.addEventListener("click", function () {
     const tarray = arr.getArr();
     todo.setIsEditing(true);
-    if(todo.returnIsEditing){
+    if (todo.returnIsEditing) {
       console.dir(domUpd.taskDiv);
       console.log(domUpd.taskInputDiv);
       console.log(domUpd);
-     domUpd.updateTask(domUpd.taskDiv, domUpd.taskInputDiv)
-     console.log(domUpd.returnTextContent(domUpd.taskDiv));
-    //  console.log(domUpd.returnTextContent(domUpd.taskInpuDiv));
-     domUpd.addTextContent(domUpd.taskInputDiv, domUpd.taskDiv.textContent)
+      domUpd.updateTask(domUpd.taskDiv, domUpd.taskInputDiv);
+      console.log(domUpd.returnTextContent(domUpd.taskDiv));
+      //  console.log(domUpd.returnTextContent(domUpd.taskInpuDiv));
+      domUpd.addTextContent(domUpd.taskInputDiv, domUpd.taskDiv.textContent);
     }
     console.log("btn", btn);
     console.log("todo", todo);
     console.log("arr", arr);
     ///////////////////////////////////
-    // Input div treba da bude tu a glavni div da se sakrije, 
+    // Input div treba da bude tu a glavni div da se sakrije,
 
     // text glavnog diva treba da bude u input divu
     // text input diva da moze da se mijenja

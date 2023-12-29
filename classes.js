@@ -37,8 +37,17 @@ export class TaskManager {
     this.taskArr.push(todo);
   }
 
+  removeTodo(todo){
+   const filteredArr = this.taskArr.filter(t => t.id !== todo.id)
+    return filteredArr
+  }
+
   showRemovedTasks() {
     return this.removedTasks;
+  }
+
+  setArr(arr){
+    this.taskArr = arr
   }
 
   getArr() {
@@ -63,17 +72,16 @@ export class TaskManager {
 
 export class DomUpdater {
   constructor() {
-    this.taskDiv = document.createElement("div");
-    this.taskRemoveBtn = document.createElement("button");
-    this.taskEditBtn = document.createElement("button");
-    this.taskInputDiv = document.createElement("div");
-    this.taskInput = document.createElement("input");
-    this.taskInputBtn = document.createElement("button");
+    
   }
 
   addClass(el, ...cl) {
     el.classList.add(...cl);
     return el;
+  }
+
+  showTodo(todo){
+
   }
 
   removeFn(todo, arr) {
