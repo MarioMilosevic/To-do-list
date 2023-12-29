@@ -22,31 +22,30 @@ export class Todo {
     return (this.isEditing = value);
   }
 
-  returnIsEditing(){
-    return this.isEditing
+  returnIsEditing() {
+    return this.isEditing;
   }
 }
 
 export class TaskManager {
   constructor() {
     this.taskArr = [];
-    this.removedTasks = []
+    this.removedTasks = [];
   }
 
-  add(todo) {
+  createTodo(todo) {
     this.taskArr.push(todo);
-    return this.taskArr;
   }
 
-  showRemovedTasks(){
-    return this.removedTasks
+  showRemovedTasks() {
+    return this.removedTasks;
   }
 
   getArr() {
     return this.taskArr;
   }
 
-  editTask(todo, value){
+  editTask(todo, value) {
     todo.textContent += value;
   }
 
@@ -87,10 +86,9 @@ export class DomUpdater {
     return el;
   }
 
-  returnTextContent(el){
-   return el.textContent 
+  returnTextContent(el) {
+    return el.textContent;
   }
-
 
   returnEl(el) {
     return el;
