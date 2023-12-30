@@ -1,6 +1,7 @@
 "use strict";
 import { init } from "./constants";
 import { Todo, TaskManager, DomUpdater } from "./classes";
+import { createTodo, createDivs } from "./helpers";
 // import { createTodo } from "./helpers";
 
 const { addBtn, input, tasks } = init();
@@ -17,18 +18,23 @@ input.addEventListener('input', function(){
 // });
 
 addBtn.addEventListener("click", function () {
-  todoInputText = input.value
-  console.log(todoInputText);
-  const todoToAdd = new Todo(todoInputText)
-  console.log(todoToAdd);
-  taskManager.createTodo(todoToAdd)
-  console.log(taskManager.taskArr); 
-  todoInputText = ''
-  // domUpd.showTodo()
+  if(input.value !== ''){
+    const todoToAdd = new Todo(input.value)
+    console.log(todoToAdd);
+    taskManager.createTodo(todoToAdd)
+    console.log(taskManager.taskArr); 
+    input.value = ''
+   const divs = createDivs(todoToAdd, taskManager, domUpd )
+   console.log(divs);
+   console.log(divs.returnTaskDiv());
+   console.log(divs.returnTaskInputDiv());
+     domUpd.showTodo(tasks, divs.returnTaskDiv(), divs.returnTaskInputDiv())
+  }
+  
 });
 
-input.addEventListener("keypress", function (e) {
-  if (e.key === "Enter") {
-    createTodo(tasks, Todo, taskManager, DomUpdater)
-  }
-});
+// input.addEventListener("keypress", function (e) {
+//   if (e.key === "Enter") {
+//     createTodo(tasks, Todo, taskManager, DomUpdater)
+//   }
+// });

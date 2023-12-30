@@ -37,17 +37,17 @@ export class TaskManager {
     this.taskArr.push(todo);
   }
 
-  removeTodo(todo){
-   const filteredArr = this.taskArr.filter(t => t.id !== todo.id)
-    return filteredArr
+  removeTodo(todo) {
+    const filteredArr = this.taskArr.filter((t) => t.id !== todo.id);
+    return filteredArr;
   }
 
   showRemovedTasks() {
     return this.removedTasks;
   }
 
-  setArr(arr){
-    this.taskArr = arr
+  setArr(arr) {
+    this.taskArr = arr;
   }
 
   getArr() {
@@ -71,18 +71,49 @@ export class TaskManager {
 }
 
 export class DomUpdater {
-  constructor() {
-    
-  }
+  constructor() {}
 
   addClass(el, ...cl) {
     el.classList.add(...cl);
     return el;
   }
 
-  showTodo(todo){
-
+  showTodo(todoParent, a, b) {
+    todoParent.append(a, b);
+    return todoParent
   }
+
+  // createDiv(todoToAdd, tasks, taskManager, domUpd )
+
+  // export const createDiv = (todo, todoParent, taskMan, domUpd) => {
+  //   const domUpdate = domUpd
+  //   const taskDiv = document.createElement("div");
+  //   const taskDivParagraph = document.createElement("p");
+  //   const taskRemoveBtn = document.createElement("button");
+  //   const taskEditBtn = document.createElement("button");
+  //   const taskInputDiv = document.createElement("div");
+  //   const taskInput = document.createElement("input");
+  //   const taskInputBtn = document.createElement("button");
+  //   domUpdate.addClass(taskDiv, "taskDiv");
+  //   domUpdate.addClass(taskDivParagraph, 'taskDivParagraph')
+  //   domUpdate.addClass(taskRemoveBtn, "taskRemoveBtn");
+  //   domUpdate.addClass(taskEditBtn, "taskEditBtn");
+  //   domUpdate.addClass(taskInputDiv, "taskInputDiv", "hidden");
+  //   domUpdate.addClass(taskInput, "taskInput");
+  //   domUpdate.addClass(taskInputBtn, "taskInputBtn");
+
+  //   domUpdate.addTextContent(taskEditBtn, "Edit");
+  //   domUpdate.addTextContent(taskRemoveBtn, "X");
+  //   domUpdate.addTextContent(taskInputBtn, "Done");
+
+  //   domUpdate.appendEl(taskInputDiv, taskInput, taskInputBtn);
+  //   domUpdate.addTextContent(taskDivParagraph, todo.text);
+  //   domUpdate.appendEl(taskDiv,taskDivParagraph ,taskEditBtn, taskRemoveBtn);
+
+  //   todoParent.append(
+  //     domUpdate.returnEl(taskDiv),
+  //     domUpdate.returnEl(taskInputDiv)
+  //   );
 
   removeFn(todo, arr) {
     const filterArr = arr.filter((_, index) => index !== todo.index);
@@ -107,8 +138,8 @@ export class DomUpdater {
     b.classList.remove("hidden");
   }
 
-  appendEl(a, b, c) {
-    a.append(b, c);
+  appendEl(a, ...restParams) {
+    a.append(...restParams);
     return a;
   }
 }
