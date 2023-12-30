@@ -25,8 +25,13 @@ export const createDivs = (todo, taskMan, domUpd) => {
   domUpdate.appendEl(taskDiv, taskDivParagraph, taskEditBtn, taskRemoveBtn);
 
   taskRemoveBtn.addEventListener("click", function () {
-    console.log(todo);
-   console.log(taskMan.removeTodo(todo))
+   const divParent = taskInputDiv.parentElement
+   console.log(divParent);
+   console.log(todo);
+   domUpd.removeTodo(taskDiv)
+   domUpd.removeTodo(taskInputDiv)
+  //  taskDiv.remove()
+  //  taskInputDiv.remove()
   });
 
   return {

@@ -93,6 +93,10 @@ export class DomUpdater {
     return todoParent
   }
 
+  removeTodo(el){
+   el.remove()
+  }
+
 
   removeFn(todo, arr) {
     const filterArr = arr.filter((_, index) => index !== todo.index);
