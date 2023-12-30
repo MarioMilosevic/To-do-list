@@ -37,10 +37,20 @@ export class TaskManager {
     this.taskArr.push(todo);
   }
 
+  // removeTodo(todo) {
+  //   console.log(todo)
+  //   console.log(this.taskArr)
+  //   const filteredArr = this.taskArr.filter((t) => t.id !== todo.id);
+  //   this.taskArr = filteredArr
+  //   console.log(filteredArr)
+  //   return this.taskArr;
+  // }
   removeTodo(todo) {
-    const filteredArr = this.taskArr.filter((t) => t.id !== todo.id);
-    return filteredArr;
+    const filteredArr = this.taskArr.filter(el => el !== todo)
+    this.taskArr = filteredArr
+    return this.taskArr
   }
+
 
   showRemovedTasks() {
     return this.removedTasks;

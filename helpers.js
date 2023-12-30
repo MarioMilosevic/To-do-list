@@ -24,17 +24,15 @@ export const createDivs = (todo, taskMan, domUpd) => {
   domUpdate.addTextContent(taskDivParagraph, todo.text);
   domUpdate.appendEl(taskDiv, taskDivParagraph, taskEditBtn, taskRemoveBtn);
 
-  const returnTaskDiv = () => taskDiv;
-  const returnTaskInputDiv = () => taskInputDiv;
+  taskRemoveBtn.addEventListener("click", function () {
+    console.log(todo);
+   console.log(taskMan.removeTodo(todo))
+  });
 
   return {
-    returnTaskDiv,
-    returnTaskInputDiv,
+    taskDiv,
+    taskInputDiv,
   };
-
-  // btnRemoveEvent(domUpdate, todo, domUpdate.taskDiv, taskMan);
-
-  // btnEditEvent(domUpdate.taskEditBtn, todo, domUpdate, taskMan);
 };
 
 // const btnRemoveEvent = (domUpd, todo, div, taskMan) => {

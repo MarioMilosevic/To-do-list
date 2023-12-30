@@ -7,14 +7,13 @@ const { addBtn, input, tasks } = init();
 const taskManager = new TaskManager();
 const domUpd = new DomUpdater();
 
-
 addBtn.addEventListener("click", function () {
   if (input.value !== "") {
     const todoToAdd = new Todo(input.value);
     taskManager.createTodo(todoToAdd);
     input.value = "";
     const divs = createDivs(todoToAdd, taskManager, domUpd);
-    domUpd.showTodo(tasks, divs.returnTaskDiv(), divs.returnTaskInputDiv());
+    domUpd.showTodo(tasks, divs.taskDiv, divs.taskInputDiv);
   }
 });
 
@@ -25,7 +24,7 @@ input.addEventListener("keypress", function (e) {
       taskManager.createTodo(todoToAdd);
       input.value = "";
       const divs = createDivs(todoToAdd, taskManager, domUpd);
-      domUpd.appendEl(tasks, divs.returnTaskDiv(), divs.returnTaskInputDiv());
+      domUpd.appendEl(tasks, divs.taskDiv, divs.taskInputDiv);
     }
   }
 });
