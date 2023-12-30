@@ -32,11 +32,6 @@ export const createDivs = (todo, taskMan, domUpd) => {
     returnTaskInputDiv,
   };
 
-  // todoParent.append(
-  //   domUpdate.returnEl(taskDiv),
-  //   domUpdate.returnEl(taskInputDiv)
-  // );
-
   // btnRemoveEvent(domUpdate, todo, domUpdate.taskDiv, taskMan);
 
   // btnEditEvent(domUpdate.taskEditBtn, todo, domUpdate, taskMan);
@@ -96,12 +91,12 @@ export const createDivs = (todo, taskMan, domUpd) => {
 //   };
 // };
 
-export const createTodo = (tasksDiv, todo, taskMan, domUpd) => {
-  let inputText = input.value;
-  if (inputText !== "") {
-    const task = new todo(inputText);
-    createDivs(task, tasksDiv, taskMan, domUpd);
-    input.value = "";
-    taskMan.add(task);
-  }
-};
+// export const createTodo = (tasksDiv, todo, taskMan, domUpd) => {
+//   let inputText = input.value;
+//   if (inputText !== "") {
+//     const task = new todo(inputText);
+//     createDivs(task, tasksDiv, taskMan, domUpd);
+//     input.value = "";
+//     taskMan.add(task);
+//   }
+// };
