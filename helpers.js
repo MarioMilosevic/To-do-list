@@ -26,10 +26,8 @@ export const createDivs = (todo, taskMan, domUpd) => {
 
   taskRemoveBtn.addEventListener("click", function () {
    taskMan.removeTodo(todo)
-   
    domUpd.removeTodo(taskDiv)
    domUpd.removeTodo(taskInputDiv)
-   console.log(taskMan.getArr());
   });
 
   return {
